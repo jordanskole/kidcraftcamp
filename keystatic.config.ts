@@ -21,5 +21,24 @@ export default config({
         }),
       },
     }),
+    locations: collection({
+      label: "Locations",
+      path: "locations/*",
+      slugField: "name",
+      schema: {
+        name: fields.slug({ name: { label: "Name" } }),
+        street: fields.text({
+          label: "Street"
+        }),
+        city: fields.text({
+          label: "City"
+        }),
+        state: fields.select({
+          label: "State",
+          options: [{ label: "Michigan", value: "MI" }, { label: "Ohio", value: "OH" }, { label: "Illinois", value: "IL" }],
+          defaultValue: "MI"
+        })
+      }
+    })
   },
 });
